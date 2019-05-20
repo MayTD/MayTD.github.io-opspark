@@ -176,14 +176,14 @@ function longest(stringOne, stringTwo) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-    if (stringOne[0].toLowerCase() === stringTwo[0].toLowerCase()) {
+    if (stringOne.toLowerCase() === stringTwo.toLowerCase()) {
         return 0;
     }
-    else if (stringOne[0].toLowerCase() < stringTwo[0].toLowerCase()) {
-        return -1;
+    else if (stringOne.toLowerCase() < stringTwo.toLowerCase()) {
+        return 1;
     }
     else {
-        return 1;
+        return -1;
     }
     
 
