@@ -24,7 +24,7 @@ function reverseString(input) {
     
     var newString;
     
-    for (var i = input[input.length]; i >= 0; i--) {
+    for (var i = input.length; i >= 0; i--) {
       newString += input[i];
     }
     
