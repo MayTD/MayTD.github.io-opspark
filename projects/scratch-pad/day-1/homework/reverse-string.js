@@ -22,7 +22,13 @@
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
     
+    var newString;
     
+    for (var i = input[input.length]; i >= 0; i--) {
+      newString += input[i];
+    }
+    
+    return newString;
     
     
     // YOUR CODE GOES ABOVE HERE //
