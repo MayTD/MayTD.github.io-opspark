@@ -138,9 +138,8 @@ function concat(stringOne, stringTwo) {
  */
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-    var args = Array.from(stringOne + stringTwo);
-    return args;
-    
+    var args = Array.from(arguments);
+    return args.join('');
     // YOUR CODE ABOVE HERE //
 }
 
@@ -176,14 +175,14 @@ function longest(stringOne, stringTwo) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-    if (stringOne.toLowerCase() === stringTwo.toLowerCase()) {
-        return 0;
+    if (stringTwo.toLowerCase() < stringOne.toLowerCase()) {
+        return -1;
     }
     else if (stringOne.toLowerCase() < stringTwo.toLowerCase()) {
         return 1;
     }
     else {
-        return -1;
+        return 0;
     }
     
 
@@ -200,9 +199,16 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
+   
+     if (stringOne.toLowerCase() > stringTwo.toLowerCase()) {
+        return 1;
+    }
+    else if (stringTwo.toLowerCase() > stringOne.toLowerCase()) {
+        return -1;
+    }
+    else {
+        return 0;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
