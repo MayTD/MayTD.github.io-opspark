@@ -15,8 +15,7 @@
 function isArray(value) {
     // YOUR CODE BELOW HERE //
     
-    
-    
+  return Array.isArray(value);
     
     // YOUR CODE ABOVE HERE //
 }
@@ -32,8 +31,7 @@ function isArray(value) {
 function isObject(value) {
     // YOUR CODE BELOW HERE //
     
-    
-    
+     return Object.prototype.toString.call(value) === '[object Object]';
     
     // YOUR CODE ABOVE HERE //
 }
@@ -46,10 +44,9 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+
+    return isObject(value) || isArray(value);
+
     // YOUR CODE ABOVE HERE //
 }
 
@@ -74,9 +71,20 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    console.log(value);
+    console.log(typeof value);
+   
+    if (isArray(value)) {
+        return 'array';
+    }
+    if (value === null) {
+        return 'null';
+    }
+    if (value instanceof Date) {
+        return 'date';
+    }
+   
+    return typeof value;
     
     // YOUR CODE ABOVE HERE //
 }
