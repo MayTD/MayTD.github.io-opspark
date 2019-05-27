@@ -1,7 +1,8 @@
 /*
     DATATYPES:
     
-// 0. This is the type of value //
+// 0. //
+    This is the type of value   
     
     Javacript Types are Dynamic:
     var x;          -> undefined
