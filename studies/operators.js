@@ -91,7 +91,7 @@
 //an operation with only one operand
     // delete deletes values of a specific index of an array and the specific property of an object
     // it returns true if it successfully deleted the property or if the property does not exist. It returns** false** if it fails to delete an item.
-    var test = {key: '1'}
+    var test = {key: '1'};
     delete test;             // returns false
     console.log(test);      // returns {key: '1'}
     delete test.key;        // returns true
