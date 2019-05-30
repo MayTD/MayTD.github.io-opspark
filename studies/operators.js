@@ -17,16 +17,13 @@
     a -= 5;         // a = 10
     
    // multiplication assignment. 
-    a *= 4;         // a = 20
+    a *= 2;         // a = 20
     
     // division assignment. 
     a /= 2;         // a = 10
     
     // remainder assignment. 
     a %= 4;         // a = 2
-    
-    // exponentiation assignent.
-    a **= 3;        // a = 8
     
     
 // 2. Arithmetic operators //
@@ -47,8 +44,6 @@
     // modulo (remainder)
     b % 3;          // 4 / 3 = 1.333, remainder is 1
     
-    // exponentiation
-    b ** 2;         // 4^2
     
 // 3. Comparison operators // 
     // equal operator returns true if operands are equal. 
