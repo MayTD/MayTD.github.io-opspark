@@ -2,9 +2,11 @@
     DATATYPES:
     
 // 0. //
-    This is the type of value   
+    A variable can contain any data. The type of data determines its role. It could be a number,
+    a piece of text, a function, and so on.
     
     Javacript Types are Dynamic:
+    the value of the variable can be changed
     var x;          -> undefined
     x = 5;          -> x is now a number
     x = "Hello";    -> x is now a string
@@ -12,13 +14,16 @@
 
 
 // 1. numbers //
+// JS does not have different types of numbers like int, short, long, float, etc.
+// adding a string and a number or number and a string will resilt in string concatenation
     var num1 = 3;           // whole number
-    var num2 = 3.15;        // with decimals
+    var num2 = 3.15;        // with decimals, the max num of decimals is 17
     var num3 = 123e5;       // 12300000
     var num4 = 123e-5;      // 0.00123
     
 // 2. strings //
 // a series of characters
+// string indexes are zero-based
     var str1 = 'Hello';     // single quote
     var str2 = "World";     // double quote
     var str3 = str1 + 3;    // Hello3 since first operand is a string, all operands are treated as strings
@@ -100,9 +105,13 @@
     var a = 1;
     var b = a;      // value stored in a is copied into b
     b = 2;          // changing value at b doesn't affect a
+    console.log(a);
+    console.log(b);
     
     // copied by reference
     var a = {name: 'may'};
     var b = a;              // they both now point to same object
     b.name = 'Momo';        // both references will have name = 'momo'
+    console.log(a.name);
+    console.log(b.name);
     
