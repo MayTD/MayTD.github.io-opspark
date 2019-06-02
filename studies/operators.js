@@ -2,11 +2,24 @@
     OPERATORS:
     
 // 0. //
-    used to assign, compare, or perform arithmetic operations.
+    An operator is capable of manipulating a certain value or operand. 
+    It can be used to assign, compare, or perform arithmetic operations.
+    Javascript has unary, binary, and ternary operators.
+    
+    A unary operator requires a single operand, either before or after the operator 
+    x++
+    
+    A binary operator requires two operands, one before the operator and one after 
+    x + y
+    
+    A ternary operator requires three operands. The operator can have one of two values based on the condition
+    (playerOne) ?  "P1" : "P2";
     
 */
 
 // 1. Assignment operators //
+// used to assign values to JavaScript variables
+
     // assignment
     var a = 5; 
     
@@ -27,6 +40,7 @@
     
     
 // 2. Arithmetic operators //
+// used to perform arithmetic between variables and/or values
     var b = 4;
     
     // increments by 1.
@@ -46,10 +60,12 @@
     
     
 // 3. Comparison operators // 
-    // equal operator returns true if operands are equal. 
+// compare two values and evaluate to a boolean
+
+    // equal operator returns true if operands are equal in value (loose comparison) 
     a == b;         // false
     
-    // strictly equal operator returns true if operands are strictly equal (including datatype). 
+    // strictly equal operator returns true if operands are equal in value and datatype (strictly equal)
     a === b;        // false
     
     // not equal returns true if operand is NOT equal. 
@@ -72,6 +88,9 @@
     
     
 // 4. Logical operators //
+// typically used with Boolean (logical) values. When they are, they return a Boolean value
+// However, the && and || operators actually return the value of one of the specified operands
+
     // AND returns true if both operands are true; otherwise, returns false. 
     console.log(a < 0 && b > 0);    // false
     
@@ -84,12 +103,13 @@
     
 // 5. Unary operators (!, typeOf, -) //
 //an operation with only one operand
-    // delete deletes values of a specific index of an array and the specific property of an object
+
+    // delete deletes values of a specific index of an array or the specific property of an object
     // it returns true if it successfully deleted the property or if the property does not exist. It returns** false** if it fails to delete an item.
     var test = {key: '1'};
-    delete test;             // returns false
+    // delete test;             // returns false since it couldn't delete object
     console.log(test);      // returns {key: '1'}
-    delete test.key;        // returns true
+    delete test.key;        // returns true. it can delete the property
     console.log(test);      // returns {}
 
     // typeof returns the type of the operand
@@ -114,16 +134,17 @@
     
     // bitwise not (~) performs NOT operation on each bit of the expression by inverting all the bits in the operand and return a number
     // A bitwise not on a number results in: -(x + 1)
-    ~2                  //returns -3
-    ~'-3'               // returns 2
-    ~true               // returns -2
+    console.log(~2);            //returns -3
+    console.log(~'-3');         // returns 2
+    console.log(~true);         // returns -2
     
     // NOT (!) performs logical negation on the expression
     !false;             // returns true
     
     
 // 6. Ternary operator (a ? b : c) //
-// condition ? exprIfTrue : exprIfFalse (shortcut for the if statement)
+// condition ? exprIfTrue : exprIfFalse 
+// shorthand for the if/else statement
     var age = 19;
     var beverage = (age >= 21) ? "beer" : "soda";
     console.log(beverage);        // soda

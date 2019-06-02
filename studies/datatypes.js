@@ -57,8 +57,8 @@
     
 // 7. undefined //
 // indicates that a variable has not been assigned
-    var x;
-    console.log(x);
+    var j;
+    console.log(j);         // prints undefined
     
 // 8. null //
 // empty or non-existent object value
@@ -103,15 +103,15 @@
         
     // copied by value
     var a = 1;
-    var b = a;      // value stored in a is copied into b
-    b = 2;          // changing value at b doesn't affect a
-    console.log(a);
-    console.log(b);
+    var b = a;          // value stored in a is copied into b
+    b = 2;              // changing value at b doesn't affect a
+    console.log(a);     // prints 1
+    console.log(b);     // prints 2
     
     // copied by reference
     var a = {name: 'may'};
     var b = a;              // they both now point to same object
     b.name = 'Momo';        // both references will have name = 'momo'
-    console.log(a.name);
-    console.log(b.name);
+    console.log(a.name);    // prints momo
+    console.log(b.name);    // prints momo
     

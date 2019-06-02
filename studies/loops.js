@@ -3,16 +3,34 @@
     
 // 0. //
     Loops are build-in constructs that allow us to execute a block of code as many times as needed.
+    Handy, if you want to run the same code over and over again, each time with a different value.
+    These are some of the different types of loops: 
+    
+    for:repeats until a specified condition evaluates to false
+    for ([initialExpression]; [condition]; [incrementExpression]) {
+        statements
+    }
+    
+    for-in: iterates a specified variable over all the enumerable properties of an object. For each distinct property, executes the specified statements
+    for (variable in object) {
+        statements
+    }
+    
+    while: executes its statements as long as a specified condition evaluates to true
+    while (condition) {
+        statements
+    }
 */
     
 // 1. while, for, and for-in loops //
     
     // while loops
     // executes code as long as condition is true
+    // this is better to use than for loops when condition is not based on a certain number ex. boolean
     var count;
     while (i <= 5) {
         console.log(count);         // prints 1-5
-        count++;                    // increments i
+        count++;                    // increment i so that i will reach 5 to avoid infinite loop
     }
     
     // for loops
