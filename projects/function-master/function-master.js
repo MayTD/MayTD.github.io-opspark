@@ -146,7 +146,7 @@ function nonFriends(name, array) {
     // will contain all names from array except person with name variable
     // person with name variable cannot be friends with themselves
     let allNames = [];
-    
+
     let notFriends = [];
     
     // populate allNames
