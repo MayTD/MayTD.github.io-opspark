@@ -21,6 +21,11 @@ var _ = {};
 *   _.identity({a: "b"}) === {a: "b"}
 */
 
+// identity takes a single value
+_.identity = function(value) {
+    // return value unchanged
+    return value;
+};
 
 /** _.typeOf
 * Arguments:
@@ -42,6 +47,21 @@ var _ = {};
 * _.typeOf([1,2,3]) -> "array"
 */
 
+// typeOf takes a single value
+_.typeOf = function(value) {
+    // check if array
+    if (Array.isArray(value)) {
+        return 'array';
+    }
+    // check if null
+    else if (value === null) {
+        return 'null';
+    }
+    
+    // use typeOf method unary operator
+    return (typeof value);
+};
+
 
 /** _.first
 * Arguments:
@@ -60,6 +80,28 @@ var _ = {};
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
+
+// first takes an array and a number
+_.first = function(array, num) {
+    // check if array is not array or if num is neg
+    if (!Array.isArray(array) || num < 0) {
+        // return an empty list
+        return [];
+    }
+    // check if num is greater than array length
+    else if(num > array.length) {
+        // return whole array
+        return array;
+    }
+    // check if num is not given or is not a number
+    else if (!num || isNaN(num)) {
+        // return first element of array
+        return array[0];
+    }
+    
+    // return number of elements equal to num
+    return array.slice(0, num);
+};
 
 
 /** _.last
@@ -80,6 +122,28 @@ var _ = {};
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 
+// last takes an array and a number
+_.last = function(array, num) {
+    // check if array is not array or if num is neg
+    if (!Array.isArray(array) || num < 0) {
+        // return an empty list
+        return [];
+    }
+    // check if num is greater than array length
+    else if(num > array.length) {
+        // return whole array
+        return array;
+    }
+    // check if num is not given or is not a number
+    else if (!num || isNaN(num)) {
+        // return last element of array
+        return array[array.length - 1];
+    }
+    
+    // return number of elements equal to num
+    return array.slice(num - 1);
+};
+
 
 /** _.indexOf
 * Arguments:
@@ -97,6 +161,20 @@ var _ = {};
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+// indexOf takes an array and a value
+_.indexOf = function(array, value) {
+    // loop through array and returns index at which value is first found
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            // return the index
+            return i;
+        }
+    }
+    
+    // value is not found, return -1
+    return -1;
+};
+
 
 /** _.contains
 * Arguments:
@@ -112,6 +190,12 @@ var _ = {};
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+
+//contains takes in an array and a value
+_.contains = function(array, value) {
+    // includes will loop over the array and return true if it's found, and false it not found
+    return array.includes(value) ? true : false;
+};
 
 
 /** _.each
@@ -130,6 +214,22 @@ var _ = {};
 *      -> should log "a" "b" "c" to the console
 */
 
+// each takes in an array or object and a funcion
+_.each = function(collection, func) {
+    // check if collection is an array
+    if (Array.isArray(collection)) {
+        for (let i = 0; i < collection.length; i++) {
+            func(collection[i], i, collection);
+        }
+    }
+    // collection is an object
+    else {
+        for (let key in collection) {
+            func(collection[key], key, collection);
+        }
+    }
+};
+
 
 /** _.unique
 * Arguments:
@@ -140,6 +240,19 @@ var _ = {};
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
+
+// unique takes in an array
+_.unique = function(array) {
+    let uniq = [];
+    
+    for (let i = 0; i < array.length; i++) {
+        if (_.indexOf(array, array[i]) >= i) {
+            uniq.push(array[i]);
+        }
+    }
+    
+    return uniq;
+};
 
 
 /** _.filter
