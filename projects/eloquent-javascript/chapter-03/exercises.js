@@ -17,8 +17,23 @@ function min(x, y) {
 // isEven //////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function isEven() {
-
+function isEven(num) {
+  // num is 0 and return true
+  if (num === 0) {
+	return true; 
+  } 
+  // num is 1 and return false
+  else if (num === 1) {
+    return false;
+  } 
+  // num is a negative number
+  else if (num < 0) {
+    return isEven(num + 2);
+  }
+  // num is neither 1 or 0
+  else {
+    return isEven(num - 2);
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
