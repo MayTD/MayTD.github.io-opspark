@@ -35,7 +35,7 @@
         var z = 2;
     }
     var x;
-    console.log(x);     // this will print 1 since x is hoisted
+    console.log(x, "h");     // this will print 1 since x is hoisted
     // console.log(z);     // throws reference error since z is not defined outside test
     
     

@@ -218,12 +218,14 @@ _.contains = function(array, value) {
 _.each = function(collection, func) {
     // check if collection is an array
     if (Array.isArray(collection)) {
+        // calls func for each element
         for (let i = 0; i < collection.length; i++) {
             func(collection[i], i, collection);
         }
     }
     // collection is an object
     else {
+        // calls func for each prop
         for (let key in collection) {
             func(collection[key], key, collection);
         }
@@ -246,6 +248,7 @@ _.unique = function(array) {
     let uniq = [];
     
     for (let i = 0; i < array.length; i++) {
+        // if the index of first-occurring value is greater than i
         if (_.indexOf(array, array[i]) >= i) {
             uniq.push(array[i]);
         }
@@ -271,6 +274,22 @@ _.unique = function(array) {
 *   use _.each in your implementation
 */
 
+// filter takes an array and a function
+_.filter = function(array, func) {
+    // holds values that will pass through func
+    let arr = [];
+    
+    // each element will call func
+    _.each(array, function(element, index, array) {
+        // if func returns true, push the element into arr
+        if (func(element, index, array)) {
+            arr.push(element);
+        }
+    });
+    
+    return arr;
+};
+
 
 /** _.reject
 * Arguments:
@@ -280,10 +299,20 @@ _.unique = function(array) {
 *   1) call <function> for each element in <array> passing the arguments:
 *      the element, it's index, <array>
 *   2) return a new array of elements for which calling <function> returned false
-*   3) This is the logical inverse if _.filter(), you must use _.filter() in your implementation
+*   3) This is the logical inverse of _.filter(), you must use _.filter() in your implementation
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+// reject takes an array and a function
+_.reject = function(array, func) {
+    // filter returns an array that passes through func
+    return _.filter(array, function(element, index, array) {
+        // return the opposite of func, true to false
+        // this makes filter to return the opposite
+        return !func(element, index, array);
+    });
+};
 
 
 /** _.partition
@@ -305,6 +334,25 @@ _.unique = function(array) {
 }
 */
 
+// partition takes an array and a function
+_.partition = function(array, func) {
+    // array with two empty arrays
+    let array2 = [[], []];
+    
+    _.each(array, function(element, index, array) {
+        // if func returns true, push true element into the first element's array
+        if (func(element, index, array)) {
+            array2[0].push(element);
+        } 
+        // func returns false, push false element into sec element's array
+        else {
+            array2[1].push(element);
+        }
+    });
+    
+    return array2;
+};
+
 
 /** _.map
 * Arguments:
@@ -322,6 +370,18 @@ _.unique = function(array) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+// map takes an array or object and a function
+_.map = function(collection, func) {
+    let arr = [];
+    
+    // for each element, call func and push its result into arr
+    _.each(collection, function(element, index, collection) {
+        return arr.push(func(element, index, collection));
+    })
+    
+    return arr;
+};
+
 
 /** _.pluck
 * Arguments:
@@ -333,6 +393,14 @@ _.unique = function(array) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
+_.pluck = function(array, prop) {
+    // map will return an array with values of prop in each element's objects 
+    return _.map(array, function(element, index, array) {
+        // return element's object's key's value
+        return element[prop];
+    });
+};
 
 
 /** _.every
@@ -355,6 +423,20 @@ _.unique = function(array) {
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+
+_.every = function(collection, func) {
+    let bool = true;
+    
+    // call func for every element
+    _.each(collection, function(element, index, collection) {
+        // if element is found false then bool will return false
+        if (!func(element, index, collection)) {
+          bool = false;
+        }
+    });
+    
+    return bool;
+};
 
 
 /** _.some
