@@ -35,7 +35,8 @@
         var z = 2;
     }
     var x;
-    console.log(x, "h");     // this will print 1 since x is hoisted
+    test();
+    console.log('test', x);     // this will print 1 since x is hoisted but you need to call the function
     // console.log(z);     // throws reference error since z is not defined outside test
     
     
@@ -56,7 +57,7 @@
     // PI = 'Hello';        // this will give an error
     
     const apple = {color: "red", taste: "sweet"};
-    // car = {color: "green", taste: "sour"};       // throws an error
+    apple = {color: "green", taste: "sour"};        // throws an error
     apple.size = "small";                           // this will add a new key/value in apple object
     
     const colors = ["blue", "yellow"];

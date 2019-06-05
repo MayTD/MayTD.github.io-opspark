@@ -43,7 +43,8 @@
     
     // function expression
     // very similar to function statement, but function name can be omitted to create anonymous functions
-    // can be used as a IIFE (Immediately Invoked Function Expression) which runs as soon as it is defined
+    // After a function expression has been stored in a variable, the variable can be used as a function
+    // called by using the variable name
     var multiply = function(y) {
         return y * y;               // this value is stored into the variable, not the function definition
     };

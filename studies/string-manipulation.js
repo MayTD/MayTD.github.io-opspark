@@ -6,6 +6,14 @@
     useful operations with built-in methods to use on strings
     when you create a string, is becomes a string object instance which means it has a large number of properties and methods to it
     
+    some string methods are pure:
+        string = 'blah'
+        string.length                       this does not manipulate the original strings
+        
+    some string methods are not pure:
+        string = 'whatever'
+        string.toUpperCase();               this changes the original string
+    
 */
 
 // 1. With operators //

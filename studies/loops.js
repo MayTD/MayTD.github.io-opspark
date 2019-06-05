@@ -28,9 +28,9 @@
     // executes code as long as condition is true
     // this is better to use than for loops when condition is not based on a certain number ex. boolean
     var count;
-    while (i <= 5) {
+    while (count <= 5) {
         console.log(count);         // prints 1-5
-        count++;                    // increment i so that i will reach 5 to avoid infinite loop
+        count++;                    // increment count so that count will reach 5 to avoid infinite loop
     }
     
     // for loops

@@ -19,6 +19,7 @@
 
 // 1. Assignment operators //
 // used to assign values to JavaScript variables
+// equal sign (=) assigns the expression to the variable
 
     // assignment
     var a = 5; 
@@ -41,6 +42,7 @@
     
 // 2. Arithmetic operators //
 // used to perform arithmetic between variables and/or values
+// works the same as you would work with in math problems (+ add, - subtract...)
     var b = 4;
     
     // increments by 1.
@@ -60,7 +62,9 @@
     
     
 // 3. Comparison operators // 
-// compare two values and evaluate to a boolean
+// compare two values and evaluate to a boolean (true or false)
+// = is assigning 
+// == or ===, <= or <, and > or >= are comparisons
 
     // equal operator returns true if operands are equal in value (loose comparison) 
     a == b;         // false
@@ -89,7 +93,7 @@
     
 // 4. Logical operators //
 // typically used with Boolean (logical) values. When they are, they return a Boolean value
-// However, the && and || operators actually return the value of one of the specified operands
+// However, the && and || operators return the value of one of the specified operands
 
     // AND returns true if both operands are true; otherwise, returns false. 
     console.log(a < 0 && b > 0);    // false
@@ -111,6 +115,10 @@
     console.log(test);      // returns {key: '1'}
     delete test.key;        // returns true. it can delete the property
     console.log(test);      // returns {}
+    //deleting element of an array will remove the desired element, but will not affect array length 
+    var employees = ['john', 'emily', 'jane'];
+    delete employees[0];
+    console.log(employees);     // prints [, 'emily', 'jane']
 
     // typeof returns the type of the operand
     typeof 2;            // returns 'number'
@@ -144,7 +152,8 @@
     
 // 6. Ternary operator (a ? b : c) //
 // condition ? exprIfTrue : exprIfFalse 
-// shorthand for the if/else statement
+// shorthand for the if/else statement but should be for simple uses only
+// chaining/ nesting makes it hard to read so if/else statements are prefered
     var age = 19;
     var beverage = (age >= 21) ? "beer" : "soda";
     console.log(beverage);        // soda
