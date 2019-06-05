@@ -57,7 +57,7 @@
     // PI = 'Hello';        // this will give an error
     
     const apple = {color: "red", taste: "sweet"};
-    apple = {color: "green", taste: "sour"};        // throws an error
+    // apple = {color: "green", taste: "sour"};        // throws an error
     apple.size = "small";                           // this will add a new key/value in apple object
     
     const colors = ["blue", "yellow"];
