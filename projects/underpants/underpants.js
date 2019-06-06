@@ -428,10 +428,15 @@ _.every = function(collection, func) {
     let bool = true;
     
     // call func for every element
+    // return false if it finds any false values
     _.each(collection, function(element, index, collection) {
-        // if element is found false then bool will return false
-        if (!func(element, index, collection)) {
+        // func is actually a function and func is false
+        if (typeof func === 'function' && !func(element, index, collection)) {
           bool = false;
+        }
+        // function is not provided and element is false
+        else if (typeof func !== 'function' && !element) {
+            bool = false;
         }
     });
     
@@ -460,6 +465,25 @@ _.every = function(collection, func) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, func) {
+   let bool = false;
+    
+    // call func for every element
+    // return true if it finds any true values
+    _.each(collection, function(element, index, collection) {
+        // func is actually a function and func is true
+        if (typeof func === 'function' && func(element, index, collection)) {
+          bool = true;
+        }
+        // function is not provided and element is true
+        else if (typeof func !== 'function' && element) {
+            bool = true;
+        }
+    });
+    
+    return bool;
+};
+
 
 /** _.reduce
 * Arguments:
@@ -480,6 +504,22 @@ _.every = function(collection, func) {
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function (array, func, seed) {
+    if (seed) {
+        for (let i = 0; i < array.length; i++) {
+            seed = func(seed, array[i], i);
+        }
+    }
+    else if (seed === undefined){
+        seed = array[0];
+        for (let i = 1; i < array.length; i++) {
+            seed = func(seed, array[i], i);
+        }
+    }
+    
+    return seed;
+};
+
 
 /** _.extend
 * Arguments:
@@ -495,6 +535,14 @@ _.every = function(collection, func) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+// extend should handle any number of arguments
+_.extend = function(object1, object2) {
+    // Object.assign() method is used to copy the values of all enumerable own properties from one or more source objects to a target object
+    // spread syntax (...) allows an iterable to expand in places where 0+ arguments are expected
+    return Object.assign(object1, ...arguments);
+    
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
