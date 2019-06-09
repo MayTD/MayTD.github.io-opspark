@@ -505,7 +505,7 @@ _.some = function(collection, func) {
 */
 
 _.reduce = function (array, func, seed) {
-    if (seed) {
+    if (seed !== undefined) {
         for (let i = 0; i < array.length; i++) {
             seed = func(seed, array[i], i);
         }
