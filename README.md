@@ -1,2 +1,2 @@
-# maytd.github.io/MayTDo.github.io/
+# maytd.github.io
 My website!
